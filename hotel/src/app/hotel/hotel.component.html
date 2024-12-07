@@ -1,0 +1,5 @@
+<div class="centro">
+  <div *ngFor="let viajero of viajeros; let i = index">
+    <app-viajeros [viajero]="viajero" [posicion]=i></app-viajeros>
+  </div>
+</div>
