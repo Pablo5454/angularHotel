@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Input } from '@angular/core';
-import { HotelComponent } from '../hotel/hotel.component';
+import { Viajero } from '../models/viajero';
 
 @Component({
   selector: 'app-viajeros',
@@ -10,4 +10,8 @@ import { HotelComponent } from '../hotel/hotel.component';
 export class ViajerosComponent {
   @Input() viajero: any;
   @Input() posicion: number = 0;
+  @Input() viajeros: Array<Viajero> = [];
+
+  constructor() {}
 }
+

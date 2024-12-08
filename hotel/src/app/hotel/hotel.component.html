@@ -1,5 +1,5 @@
-<div class="centro">
+<div class="centro" *ngIf="nuevo==false">
   <div *ngFor="let viajero of viajeros; let i = index">
-    <app-viajeros [viajero]="viajero" [posicion]=i></app-viajeros>
+    <app-viajeros [viajero]="viajero" [posicion]="i"></app-viajeros>
   </div>
 </div>

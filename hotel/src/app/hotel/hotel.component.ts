@@ -8,6 +8,7 @@ import { Viajero } from '../models/viajero';
 })
 export class HotelComponent {
   public viajeros: Array<Viajero>;
+  public nuevo = false;
 
   constructor(){
     this.viajeros = [
