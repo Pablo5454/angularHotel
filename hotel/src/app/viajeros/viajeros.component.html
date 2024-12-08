@@ -2,23 +2,17 @@
   <div class="card-body">
     <h5 class="card-title">Información del Huésped</h5>
 
-    <!-- Nombre y Apellido -->
     <p class="card-text"><strong>Nombre:</strong> {{ viajero.nombre }} {{ viajero.apellido }}</p>
 
-    <!-- DNI -->
     <p class="card-text"><strong>DNI:</strong> {{ viajero.dni }}</p>
 
-    <!-- Fecha de Ingreso -->
     <p class="card-text"><strong>Fecha de Ingreso:</strong> {{ viajero.fechaIngreso }}</p>
 
-    <!-- Fecha de Salida -->
     <p class="card-text"><strong>Fecha de Salida:</strong> {{ viajero.fechaSalida }}</p>
 
-    <!-- Habitación -->
     <p class="card-text"><strong>Habitación:</strong> {{ viajero.habitacion }}</p>
 
-    <!-- Botones: Modificar y Borrar -->
-    <button class="btn btn-primary">Modificar</button>
+    <button class="btn btn-primary" (click)="updateViajero()">Modificar</button>
     <button class="btn btn-danger" >Borrar</button>
   </div>
 </div>

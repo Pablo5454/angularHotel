@@ -1,5 +1,50 @@
-<div class="centro" *ngIf="nuevo==false">
-  <div *ngFor="let viajero of viajeros; let i = index">
-    <app-viajeros [viajero]="viajero" [posicion]="i"></app-viajeros>
+
+<button class="btn" (click)="mostrarNuevoFormulario()">Nuevo viajero</button>
+
+<div class="container mt-4">
+  <div class="row" *ngIf="nuevo==false">
+    <div class="col-md-4" *ngFor="let viajero of viajeros; let i = index">
+      <app-viajeros [viajero]="viajero" [posicion]="i" (eliminarViajero)="eliminarViajero($event)" (modificarViajero)="modificarViajero($event)"></app-viajeros>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5" *ngIf="nuevo==true">
+  <div class="card">
+      <div class="card-header text-center bg-primary text-white">
+          <h3>USUARIOS HOTEL</h3>
+      </div>
+      <div class="card-body">
+          <form>
+              <div class="mb-3">
+                  <label for="nombre" class="form-label">Nombre</label>
+                  <input [(ngModel)]="nombreInt" type="text" class="form-control" id="nombre" placeholder="Ingrese su nombre">
+              </div>
+              <div class="mb-3">
+                  <label for="apellidos" class="form-label">Apellidos</label>
+                  <input [(ngModel)]="apellidoInt" type="text" class="form-control" id="apellidos" placeholder="Ingrese sus apellidos">
+              </div>
+              <div class="mb-3">
+                  <label for="dni" class="form-label">DNI</label>
+                  <input [(ngModel)]="dniInt" type="text" class="form-control" id="dni" placeholder="Ingrese su DNI">
+              </div>
+              <div class="mb-3">
+                  <label for="fechaIngreso" class="form-label">Fecha de Ingreso</label>
+                  <input [(ngModel)]="fechaIngresoInt" type="date" class="form-control" id="fechaIngreso">
+              </div>
+              <div class="mb-3">
+                  <label for="fechaSalida" class="form-label">Fecha de Salida</label>
+                  <input [(ngModel)]="fechaSalidaInt" type="date" class="form-control" id="fechaSalida">
+              </div>
+              <div class="mb-3">
+                  <label for="habitacion" class="form-label">Habitación</label>
+                  <input [(ngModel)]="habitacionInt" type="text" class="form-control" id="habitacion" placeholder="Ingrese el número de habitación">
+              </div>
+              <div class="text-center">
+                  <button type="submit" class="btn btn-success me-2" (click)="aceptar()">Aceptar</button>
+                  <button type="reset" class="btn btn-secondary" (click)="cancelar()">Cancelar</button>
+              </div>
+          </form>
+      </div>
   </div>
 </div>
