@@ -12,6 +12,8 @@ export class ViajerosComponent {
   @Input() posicion: number = 0;
   @Input() viajeros: Array<Viajero> = [];
 
+  // @Input() viajero:Viajero = new Viajero("", "", '', '', '', '');
+  
   constructor() {}
 }
 

@@ -25,33 +25,41 @@ export class HotelComponent {
     this.editar = false;
   }
 
-  aceptar(){
-    if(this.editar==false){
-      this.crearViajero()
-    }else{
-      this.updateViajero();
-    }
-  }
+  // aceptar(){
+  //   if(this.editar==false){
+  //     this.crearViajero()
+  //   }else{
+  //     this.modificarViajero();
+  //   }
+  // }
 
-  crearViajero(){
-    this.viajero = new Viajero(this.nombreInt, this.apellidoInt, this.dniInt, this.fechaIngresoInt, this.fechaSalidaInt, this.habitacionInt)
-    this.viajeros.push(this.viajero);
-    this.nuevo = false;
-  }
+  // crearViajero(){
+  //   this.Viajero = new Viajero(this.nombre, this.apellido, this.dni, this.fechaIngreso, this.fechaSalida, this.habitacion)
+  //   this.viajeros.push(this.viajero);
+  //   this.nuevo = false;
+  // }
 
-  updateViajero(){
+  // activarEdicion(){
+  //   this.nuevo = true;
+  //   this.editar = true;
+  //   this.posicion = parseInt(event);
 
-  }
+  //   this.viajero = this.viajeros[this.posicion];
+  // }
 
-  eliminarViajero(){
-    this.nuevo = true;
-    this.editar = true;
-    alert(this.nuevo);
-    this.posicion = parseInt(event);
-  }
+  // modificarViajero(){
+  //   activarEdicion();
 
-  modificarViajero(){
 
-  }
+  // }
+
+  // eliminarViajero(){
+  //   this.nuevo = true;
+  //   this.editar = true;
+  //   alert(this.nuevo);
+  //   this.posicion = parseInt(event);
+  // }
+
+
 
 }
