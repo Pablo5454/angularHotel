@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Viajero } from '../models/viajero';
 
 @Component({
@@ -12,12 +12,14 @@ export class HotelComponent {
   public editar = false;
   public viajero: Viajero; //Se declara viajero como de tipo Viajero
 
-  public name = "";
-  public surname = "";
-  public idp = "";
-  public dateIn = "";
-  public dateOut = "";
-  public room = "";
+  public nombre = "";
+  public apellido = "";
+  public dni = "";
+  public fechaIngreso = "";
+  public fechaSalida = "";
+  public habitacion = "";
+
+  public posicion = 0;
 
   constructor(){
     this.viajeros = [
@@ -33,46 +35,52 @@ export class HotelComponent {
     this.editar = false;
   }
 
-  botonAceptar(){
-    if(this.editar==false){
-      this.crearViajero()
-    }else{
-      // this.modificarViajero();
-    }
-  }
-
   botonCancelar(){
     this.nuevo = false;
-    this.editar = true;
+    this.editar = false;
   }
 
-  crearViajero(){
-    this.viajero = new Viajero(this.name, this.surname, this.idp, this.dateIn, this.dateOut, this.room)
+  eliminarViajero(event:any){
+
+    this.posicion=parseInt(event);
+    this.viajeros.splice(this.posicion,1);
+
+  }
+
+  activarEdicion(event:any){
+    this.nuevo = true;
+    this.editar = true;
+    this.posicion = parseInt(event);
+
+    this.nombre=this.viajeros[this.posicion].nombre;
+    this.apellido=this.viajeros[this.posicion].apellido;
+    this.dni=this.viajeros[this.posicion].dni;
+    this.fechaIngreso=this.viajeros[this.posicion].fechaIngreso;
+    this.fechaSalida=this.viajeros[this.posicion].fechaSalida;
+    this.habitacion=this.viajeros[this.posicion].habitacion;
+
+  }
+
+  public crearViajero(){
+    this.viajero = new Viajero(this.nombre, this.apellido, this.dni, this.fechaIngreso, this.fechaSalida, this.habitacion)
     this.viajeros.push(this.viajero);
     this.nuevo = false;
+    this.editar = false;
   }
 
-  // activarEdicion(){
-  //   this.nuevo = true;
-  //   this.editar = true;
-  //   this.posicion = parseInt(event);
+  public updateViajero(){
+    this.viajeros[this.posicion] = new Viajero (this.nombre, this.apellido, this.dni, this.fechaIngreso, this.fechaSalida, this.habitacion);
+    this.nuevo = false;
+    this.editar = false;
+  }
 
-  //   this.viajero = this.viajeros[this.posicion];
-  // }
-
-  // modificarViajero(){
-  //   this.activarEdicion();
-
-
-  // }
-
-  // eliminarViajero(){
-  //   this.nuevo = true;
-  //   this.editar = true;
-  //   alert(this.nuevo);
-  //   this.posicion = parseInt(event);
-  // }
-
+  public botonAceptar(){
+    if(this.editar==false){
+      this.crearViajero();
+    }else{
+      this.updateViajero();
+    }
+  }
 
 
 }

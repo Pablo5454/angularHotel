@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Input } from '@angular/core';
 import { Viajero } from '../models/viajero';
 
@@ -10,10 +10,17 @@ import { Viajero } from '../models/viajero';
 export class ViajerosComponent {
   @Input() viajero: any;
   @Input() posicion: number = 0;
-  @Input() viajeros: Array<Viajero> = [];
 
-  // @Input() viajero:Viajero = new Viajero("", "", '', '', '', '');
-  
+  @Output() eliminarViajero = new EventEmitter();
+  @Output() activarEdicion = new EventEmitter();
+
+  deleteViajero(){
+    this.eliminarViajero.emit(this.posicion);
+  }
+  updateViajero(){
+    this.activarEdicion.emit(this.posicion);
+  }
+
   constructor() {}
 }
 
